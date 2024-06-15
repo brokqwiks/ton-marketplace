@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "ESxlR3eA5THuSBjxssbGsOUTFXkBAB8PknVos+yGtWZy4c9RrAoEFMruGcI/F1rhEP4anTpO/ppD7PKSOlirkQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MIX PC\\Documents\\ton-market\\backend\\TonMarket\\TonMarket.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MIX PC\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Пакет \"BouncyCastle 1.8.9\" был восстановлен с помощью \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\", а не целевой платформы проекта \"net7.0\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
+}
