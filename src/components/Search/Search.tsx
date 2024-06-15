@@ -1,16 +1,13 @@
 import classes from "./styles.module.scss";
 
 interface Props {
-    shownMobile: boolean
+    shownMobile: boolean;
 }
 
-export default function Search({shownMobile}: Props) {
-    function log() {
-        console.log("form submited")
-    }
+export default function Search({ shownMobile }: Props) {
     return (
-        <search className={`${classes.search} ${shownMobile ? 'shown-mobile' : 'hidden-mobile'}`}>
-            <form onSubmit={log} autoComplete="off">
+        <search className={`${classes.search} ${shownMobile ? "shown-mobile" : "hidden-mobile"}`}>
+            <form autoComplete="off">
                 <button type="submit">
                     <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
