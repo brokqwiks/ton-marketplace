@@ -3,7 +3,7 @@ import hashlib
 from cryptography.hazmat.primitives.serialization import Encoding, PublicFormat
 from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.hazmat.backends import default_backend
-from backend.src.keys.Mnemonic import MnemonicGenerator
+from src.keys.Mnemonic import MnemonicGenerator
 
 class Keys:
 

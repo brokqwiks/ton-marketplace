@@ -6,6 +6,6 @@ load_dotenv()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MNEMONIC_FILE_RELATIVE = os.getenv('MNEMONIC_FILE_PATH')
-MNEMONIC_FILE = os.path.join(BASE_DIR, 'backend', MNEMONIC_FILE_RELATIVE)
+MNEMONIC_FILE = os.path.join(BASE_DIR,'backend',MNEMONIC_FILE_RELATIVE)
 
 MNEMONIC_LENGTH = int(os.getenv('MNEMONIC_LENGTH'))

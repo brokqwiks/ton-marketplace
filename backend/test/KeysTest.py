@@ -3,8 +3,8 @@ import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from backend.config import MNEMONIC_FILE, MNEMONIC_LENGTH
-from backend.src.keys import Mnemonic, Keys
+from config import MNEMONIC_FILE, MNEMONIC_LENGTH
+from src.keys import Mnemonic, Keys
 
 mnemonic_generator = Mnemonic.MnemonicGenerator(
     MNEMONIC_FILE,
