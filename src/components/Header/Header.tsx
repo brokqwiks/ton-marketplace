@@ -2,6 +2,7 @@ import { useState } from "react";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./styles.module.scss";
+import Modal from "../Modal/Modal";
 
 export default function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
@@ -28,18 +29,7 @@ export default function Header() {
                     </button>
                 </div>
 
-                <div
-                    className={`${styles.headerMenu} shown-mobile`}
-                    style={{ display: isSearchOpen ? "block" : "none" }}
-                >
-                    <button
-                        className={styles.closeMenuButton}
-                        onClick={() => setIsSearchOpen(false)}
-                    >
-                        <i className="fa-solid fa-xmark"></i>
-                    </button>
-                    <Search shownMobile={true} />
-                </div>
+                <Modal isOpen={isSearchOpen} close={()=>setIsSearchOpen(false)}><Search shownMobile={true} /></Modal>
             </div>
         </header>
     );
