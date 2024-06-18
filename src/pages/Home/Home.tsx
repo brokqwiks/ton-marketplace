@@ -1,10 +1,9 @@
-import Hero from '../../components/Hero/Hero'
-import styles from './styles.module.scss'
+import { Main } from "../../components/main/Main";
 
-export default function Home() {
-    return (
-        <main>
-            <Hero />
-        </main>
-    )
-}
+export const Home = () => {
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
