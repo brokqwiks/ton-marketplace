@@ -22,24 +22,15 @@ class PrivateKeyModel(BaseModel):
 class PublicKeyModel(BaseModel):
     public_key: str
 
-@app.post("/generate_private_key")
+@app.post("/generate/private_key")
 async def generate_private_key_handler(mnemonic: MnemonicModel):
-    private_key = keys_generator.generate_private_key()
+    private_key = keys_generator.GeneratePrivateKey()
     return {"private_key": private_key.hex()}
 
-@app.post("/generate_public_key")
+@app.post("/generate/public_key")
 async def generate_public_key_handler(private_key: PrivateKeyModel):
-    public_key = keys_generator.generate_public_key(bytes.fromhex(private_key.private_key))
+    public_key = keys_generator.GeneratePublicKey(bytes.fromhex(private_key.private_key))
     return {"public_key": public_key.hex()}
-
-@app.post("/generate_keys")
-async def generate_keys_handler(mnemonic: MnemonicModel):
-    private_key = keys_generator.generate_private_key()
-    public_key = keys_generator.generate_public_key(private_key)
-    private_key_hex = keys_generator.convert_to_hex(private_key)
-    public_key_hex = keys_generator.convert_to_hex(public_key)
-    keys = Keys(privatekey=private_key_hex, publickey=public_key_hex)
-    return keys
 
 @app.get("/generate/mnemonic")
 def generate_mnemonic():
@@ -48,5 +39,6 @@ def generate_mnemonic():
 
 @app.get("/generate/keys")
 def generate_keys():
-    keys = keys_generator.generateKeys()
-    return {"privateKey": keys.privateKey, "publicKey": keys.publicKey}
+    keys = keys_generator.GenerateKeys()
+    return {"privateKey": keys.privatekey, "publicKey": keys.publickey}
+

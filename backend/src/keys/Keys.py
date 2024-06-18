@@ -45,3 +45,4 @@ class KeysGenerator():
         keys = Keys(privateKeyHex, publicKeyHex)
 
         return keys
+
