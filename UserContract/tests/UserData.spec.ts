@@ -3,21 +3,24 @@ import { toNano } from '@ton/core';
 import { UserData } from '../wrappers/UserData';
 import '@ton/test-utils';
 import { send } from 'process';
+import { UsersDelpoyer } from '../build/UserData/tact_UsersDelpoyer';
 
 describe('UserData', () => {
     let blockchain: Blockchain;
     let deployer: SandboxContract<TreasuryContract>;
-    let userData: SandboxContract<UserData>;
+    let user: SandboxContract<TreasuryContract>;
+    let usersDeployer: SandboxContract<UsersDelpoyer>;
+    let UserContract: SandboxContract<UserData>;
 
     beforeEach(async () => {
         blockchain = await Blockchain.create();
         
         deployer = await blockchain.treasury('deployer');
+        user = await blockchain.treasury('user');
 
-        userData = blockchain.openContract(await UserData.fromInit(deployer.getSender().address, ""));
+        usersDeployer = blockchain.openContract(await UsersDelpoyer.fromInit("Market-Place Users Deployer"));
 
-
-        const deployResult = await userData.send(
+        const UsersDeployerResult = await usersDeployer.send(
             deployer.getSender(),
             {
                 value: toNano('0.05'),
@@ -28,36 +31,36 @@ describe('UserData', () => {
             }
         );
 
-        expect(deployResult.transactions).toHaveTransaction({
+        expect(UsersDeployerResult.transactions).toHaveTransaction({
             from: deployer.address,
-            to: userData.address,
+            to: usersDeployer.address,
             deploy: true,
             success: true,
         });
     });
 
-    it('get owner', async () => {
-        const ownerAddress = await userData.getOwner();
-        console.log(ownerAddress)
-    });
+    it('deployUserContract', async () => {
 
-    it('add public key', async () => {
+        let publicKeyHex = "04F14F5CA8C75748CC2AC8D37592C64F94CA8F64CCB3E861EF2F68B0DCF0314A761A0DF3E0720C2E4F4E10E696B5EAE8F00709C77ACE462FCE339FB50B37601F44"
 
-        const testPublicKey = "04F14F5CA8C75748CC2AC8D37592C64F94CA8F64CCB3E861EF2F68B0DCF0314A761A0DF3E0720C2E4F4E10E696B5EAE8F00709C77ACE462FCE339FB50B37601F44";
-
-        const result = await userData.send(
-            deployer.getSender(),
+        await usersDeployer.send(
+            user.getSender(),
             {
-                value: toNano('0.01')
+                value: toNano(0.3),
+                bounce: true,
             },
             {
-                $$type: "UserAuth",
-                publicKeyHex: testPublicKey,
-                sender: deployer.getSender().address
+                $$type: "DeployUserContract",
+                id: 1n,
+                owner: user.getSender().address,
+                publicKey: publicKeyHex,
             }
-        );
+        )
 
-        const contractPublicKey = await userData.getPublicKeyHex();
-        console.log(contractPublicKey);
+        const newUserContract = await blockchain.openContract(await UserData.fromInit(1n, user.getSender().address, publicKeyHex));
+        const UserContractAddress = await newUserContract.getMyAddress();
+
+        console.log(UserContractAddress);
     });
+
 });
