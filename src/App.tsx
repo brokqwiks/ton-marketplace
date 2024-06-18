@@ -1,9 +1,10 @@
+import {Home} from './pages/Home/Home.tsx'
+
 function App() {
   return (
-    <>
-      Test
-    </>
+    <div>
+      <Home/>
+    </div>
   )
 }
-
 export default App
