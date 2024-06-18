@@ -1,0 +1,17 @@
+.logo {
+    font-size: 30px;
+    text-align: center;
+}
+
+@media (max-width: 525px) {
+    .logo {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 370px) {
+    .logo {
+        font-size: 18px;
+    }
+}
+
