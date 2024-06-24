@@ -1,0 +1,46 @@
+.link {
+    font-size: 28px;
+    color: #000;
+    border: 1.5px solid #000;
+    border-radius: 15px;
+    padding: 10px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.buttonList {
+    display: flex;
+    @media (max-width: 768px) {
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    button {
+        background-color: #d9d9d9;
+        border: none;
+        width: 250px;
+        padding-block: 10px;
+        font-size: 28px;
+        color: #000;
+        cursor: pointer;
+        @media (max-width: 570px) {
+            width: 150px;
+        }
+    }
+    li:first-child button {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+    li:last-child button {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+}
+
+.activeButton {
+    color: #fff !important;
+    background-color: #323232 !important;
+}

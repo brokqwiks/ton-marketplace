@@ -23,9 +23,9 @@ export default function Header() {
                 <Logo />
                 <Search shownMobile={false} />
                 <div className={styles.buttons}>
-                    <a href="#" className={styles.button} onClick={tonConnectUi.openModal}>
+                    <button className={styles.button} onClick={tonConnectUi.openModal}>
                         <i className="fa-solid fa-wallet"></i>Connect
-                    </a>
+                    </button>
                     <button onClick={openSearch} className={`${styles.searchButton} shown-mobile`}>
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </button>

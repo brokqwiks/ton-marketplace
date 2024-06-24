@@ -65,14 +65,9 @@ body {
 }
 
 .container {
+    max-width: 1350px;
     margin-inline: auto;
     padding-top: 30px;
-}
-
-@media (max-width: 1920px) {
-    .container {
-        max-width: 1350px;
-    }
 }
 
 @media (max-width: 1350px) {
@@ -96,7 +91,7 @@ body {
     display: none;
 }
 
-@media(max-width: 768px) {
+@media (max-width: 768px) {
     .hidden-mobile {
         display: none;
     }
