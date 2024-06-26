@@ -12,15 +12,17 @@ export const Profile = () => {
         {sourse: '', price: '1 Ton'},
         {sourse: '', price: '1 Ton'},
         {sourse: '', price: '1 Ton'},
-
+        {sourse: '', price: '1 Ton'},
     ]
-    return(
-        <section className={style.profile}>
-            <ProfileResearch/>
-            <div className={style.mainCardsProfileAndPurchasesDate}>
-            <CardsProfile cards={cards}/>
-            <PurchasesDate/>
-            </div>
-        </section>
-    )
+    return (
+      <section className={style.profile}>
+        <ProfileResearch />
+        <div className={style.mainCardsProfileAndPurchasesDate}>
+          <div className={style.cardsMainProfile}>
+            <CardsProfile cards={cards} />
+          </div>
+          <PurchasesDate />
+        </div>
+      </section>
+    );
 }

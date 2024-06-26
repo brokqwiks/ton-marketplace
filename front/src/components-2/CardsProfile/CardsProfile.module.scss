@@ -1,14 +1,11 @@
 .cardsProfile {
     display: flex;
     flex-wrap: wrap;
-    width: 1120px;
 
     .cardsContainer {
-        margin-right: 107px;
+        
 
-        &:nth-child(3n+3) {
-            margin-right: 0;
-        }
+        
 
         img {
             display: block;
@@ -34,3 +31,32 @@
         }
     }
 }
+    @media (max-width: 1920px) {
+        .cardsProfile {
+            width: 1060px;;
+            margin: 0 auto;
+
+            .cardsContainer {
+                margin-right: 120px;
+                &:nth-child(3n+3) {
+                    margin-right: 0px;
+                }
+            }
+        }
+    }
+@media (max-width: 1350px) { 
+    .cardsProfile {
+        width: 700px;
+        
+        .cardsContainer{
+            margin-right: 150px;
+            &:nth-child(2n+2){
+                margin-right: 0;
+            }
+            &:nth-child(3){
+                margin-right: 150px;
+            }
+        }
+    } 
+} 
+ 
