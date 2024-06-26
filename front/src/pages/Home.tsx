@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero/Hero";
 import { Main } from "../components/main/Main";
 import WhatATon from "../components/WhatATon/WhatATon";
+import { Profile } from "../components-2/Profile/Profile";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Hero />
       <Main />
       <WhatATon />
+      <Profile/>
     </>
   );
 };
