@@ -3,10 +3,6 @@
     flex-wrap: wrap;
 
     .cardsContainer {
-        
-
-        
-
         img {
             display: block;
             width: 270px;
@@ -59,4 +55,22 @@
         }
     } 
 } 
- 
+@media (max-width: 1000px) { 
+    .cardsProfile { 
+        width: 100%; 
+        margin: 0 auto;
+        padding-inline: 20px; 
+        .cardsContainer{
+            
+            margin: 0 auto;
+            &:nth-child(2n+2){
+                margin-left: 0;
+                margin: 0 auto;
+            }
+            &:nth-child(3n+3) {
+                margin-right: 0px;
+                margin: 0 auto;
+            }
+        }
+    } 
+}

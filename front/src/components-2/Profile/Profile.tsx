@@ -15,6 +15,7 @@ export const Profile = () => {
         {sourse: '', price: '1 Ton'},
     ]
     return (
+
       <section className={style.profile}>
         <ProfileResearch />
         <div className={style.mainCardsProfileAndPurchasesDate}>
