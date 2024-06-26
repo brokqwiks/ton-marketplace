@@ -3,9 +3,11 @@ import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./styles.module.scss";
 import Modal from "../Modal/Modal";
+import { useTonConnectUI } from "@tonconnect/ui-react";
 
 export default function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+    const [tonConnectUi] = useTonConnectUI();
 
     function openSearch() {
         if (window.screen.width > 768) {
@@ -21,9 +23,9 @@ export default function Header() {
                 <Logo />
                 <Search shownMobile={false} />
                 <div className={styles.buttons}>
-                    <a href="#" className={styles.button}>
+                    <button className={styles.button} onClick={tonConnectUi.openModal}>
                         <i className="fa-solid fa-wallet"></i>Connect
-                    </a>
+                    </button>
                     <button onClick={openSearch} className={`${styles.searchButton} shown-mobile`}>
                         <i className="fa-solid fa-magnifying-glass"></i>
                     </button>
