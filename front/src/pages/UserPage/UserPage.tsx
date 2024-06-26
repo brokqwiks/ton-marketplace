@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import UserInfo from "../../components/UserInfo/UserInfo";
+import UserInfo from "../../components-2/UserInfo/UserInfo";
 import { useState } from "react";
 import style from "./styles.module.scss";
+import { ProfileBuyer } from "../../components-2/Profile-Buyer/Profile";
 
 export default function UserPage() {
     const [pageMode, setPageMode] = useState<string>("buyer");
@@ -31,7 +32,7 @@ export default function UserPage() {
                         </button>
                     </li>
                 </ul>
-                {pageMode}
+                {pageMode === 'buyer' ? <ProfileBuyer /> : 'seller'}
             </div>
         </>
     );

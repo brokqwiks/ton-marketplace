@@ -1,8 +1,8 @@
-import { CardsProfile } from "../CardsProfile/CardsProfile"
-import { ProfileResearch } from "../ProfileResearch/ProfileResearch"
-import { PurchasesDate } from "../PurchasesData/PurchasesData"
+import { CardsProfile } from "./CardsProfile/CardsProfile"
+import { ProfileResearch } from "./ProfileResearch/ProfileResearch"
+import { PurchasesDate } from "./PurchasesData/PurchasesData"
 import style from './Profile.module.scss'
-export const Profile = () => {
+export const ProfileBuyer = () => {
     const cards = [
         {sourse: '', price: '1 Ton'},
         {sourse: '', price: '1 Ton'},

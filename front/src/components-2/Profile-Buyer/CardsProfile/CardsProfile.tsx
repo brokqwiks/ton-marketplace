@@ -1,4 +1,4 @@
-import { TCardsProfile } from "../../types/TCardsProfile";
+import { TCardsProfile } from "../../../types/TCardsProfile";
 import style from "./CardsProfile.module.scss";
 
 export const CardsProfile = ({ cards }: TCardsProfile) => {
