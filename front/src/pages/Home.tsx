@@ -3,6 +3,7 @@ import Hero from "../components/Hero/Hero";
 import { Main } from "../components/main/Main";
 import WhatATon from "../components/WhatATon/WhatATon";
 import { Profile } from "../components-2/Profile/Profile";
+import { ProfileSeller } from "../components-3/ProfileSeller/ProfileSeller";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Main />
       <WhatATon />
       <Profile/>
+      <ProfileSeller/>
     </>
   );
 };

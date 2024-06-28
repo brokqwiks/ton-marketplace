@@ -1,0 +1,89 @@
+.Reviews {
+    margin-bottom: 50px;
+    h1 {
+        margin-bottom: 40px;
+        font-size: 52px;
+        font-weight: 400;
+
+    }
+
+    .reviewsAllInfo {
+        width: 637px;
+        background: rgba(237, 237, 237, 1);
+        border-radius: 15px;
+        .reviewsHeaderInfo {
+            display: flex;
+
+            .avatar {
+                margin-top: 17px;
+                margin-bottom: 26px;
+                margin-left: 14px;
+                margin-right: 16px;
+                width: 93px;
+                height: 93px;
+                border-radius: 50%;
+                background: rgba(154, 154, 154, 1);
+            }
+
+            .reviewsNameAndStar {
+                width: 390px;
+
+                h2 {
+                    margin-top: 19px;
+                    font-size: 28px;
+                    font-weight: 400;
+                }
+
+                i {
+                    margin-right: 8px;
+                    margin-top: 12px;
+                    color: rgba(255, 216, 78, 1);
+                    border: 2px solid black;
+
+                }
+            }
+
+            .cardsSize {
+                margin-top: 14px;
+
+                article {
+                    width: 100px;
+
+                    img {
+                        width: 103px;
+                        height: 74px;
+                        background: rgba(154, 154, 154, 1);
+                    }
+
+                    div {
+                        margin-right: 0;
+
+
+                        h1 {
+                            width: 103px;
+                            height: 25px;
+                            font-size: 12px;
+                            margin-bottom: 0;
+
+                            span {
+                                font-size: 10px;
+                                margin-right: 50px;
+
+                                i {
+                                    padding: 3px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    p {
+        width: 603px;
+        margin-left: 20px;
+        padding-bottom: 24px;
+    }
+}

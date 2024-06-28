@@ -25,6 +25,22 @@
             background: rgba(50, 50, 50, 1);
             color: white;
         }
+        span{
+            position: absolute;
+            display: flex;
+            align-items: center;
+            width: 22px;
+            height: 27px;
+            margin-right: 175px;
+            i{
+                
+                color: black;
+                padding: 10px 7px;
+                border-radius: 20px;
+                background: rgba(217, 217, 217, 1);
+            }
+           
+        }
     }
 }
     @media (max-width: 1920px) {

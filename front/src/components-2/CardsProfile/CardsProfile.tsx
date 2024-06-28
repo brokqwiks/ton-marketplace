@@ -8,7 +8,7 @@ export const CardsProfile = ({ cards }: TCardsProfile) => {
         return (
           <div key={index} className={style.cardsContainer}>
             <img src={cards.sourse} alt="" />
-            <h1>{cards.price}</h1>
+            <h1><span>{cards.imgSale}</span>{cards.price}</h1>
           </div>
         );
       })}
