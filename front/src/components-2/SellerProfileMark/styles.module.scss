@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 28px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 7px 20px;
+  justify-content: space-between;
+  position: absolute;
+  right: 0;
+  top: -110px;
+  @media(max-width: 960px) {
+    position: static;
+    margin-bottom: 20px;
+  }
+  @media(max-width: 500px) {
+    scale: 0.9;
+  }
+  @media(max-width: 470px) {
+    scale: 0.65;
+    position: relative;
+    left: -75px;
+    top: 0;
+  }
+  @media(max-width: 390px) {
+    left: -100px;
+  }
+}
