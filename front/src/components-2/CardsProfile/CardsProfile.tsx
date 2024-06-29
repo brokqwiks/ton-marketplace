@@ -1,13 +1,17 @@
-import { TCardsProfile } from "../../types/TCardsProfile";
+import { TProductProfile } from "../../types/TProductProfile";
 import style from "./CardsProfile.module.scss";
 
-export const CardsProfile = ({ cards }: TCardsProfile) => {
+interface Props {
+  cards: TProductProfile[]
+}
+
+export const CardsProfile = ({ cards }:  Props) => {
   return (
     <article className={style.cardsProfile}>
       {cards.map((cards, index) => {
         return (
           <div key={index} className={style.cardsContainer}>
-            <img src={cards.sourse} alt="" />
+            <img src={cards.source} alt="" />
             <h1><span>{cards.imgSale}</span>{cards.price}</h1>
           </div>
         );

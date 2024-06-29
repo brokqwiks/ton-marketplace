@@ -13,6 +13,7 @@
 
 .buttonList {
     display: flex;
+    margin-bottom: 60px;
     @media (max-width: 768px) {
         align-items: center;
         justify-content: center;
