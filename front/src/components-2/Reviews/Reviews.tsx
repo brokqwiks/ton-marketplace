@@ -25,7 +25,7 @@ export default function Reviews({ reviews }: Props) {
               </div>
               <div className={style.cardContainer}>
                 <img src={review.product.source} />
-                <h4>{review.product.price}</h4>
+                <h4><span>{review.product.imgSale}</span>{review.product.price}</h4>
               </div>
             </div>
             <p className={style.reviewText}>{review.text}</p>

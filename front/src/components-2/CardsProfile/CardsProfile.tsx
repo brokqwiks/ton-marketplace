@@ -11,8 +11,8 @@ export const CardsProfile = ({ cards }:  Props) => {
       {cards.map((cards, index) => {
         return (
           <div key={index} className={style.cardsContainer}>
-            <img src={cards.source} alt="" />
-            <h1>{cards.price}</h1>
+            <img src={cards.sourse} alt="" />
+            <h1><span>{cards.imgSale}</span>{cards.price}</h1>
           </div>
         );
       })}
