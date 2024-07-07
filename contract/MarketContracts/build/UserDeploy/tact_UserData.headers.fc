@@ -1,0 +1,94 @@
+;;
+;; Header files for UserData
+;; NOTE: declarations are sorted for optimal order
+;;
+
+;; __tact_verify_address
+slice __tact_verify_address(slice address) inline;
+
+;; __tact_load_address
+(slice, slice) __tact_load_address(slice cs) inline;
+
+;; __tact_store_address
+builder __tact_store_address(builder b, slice address) inline;
+
+;; __tact_my_balance
+int __tact_my_balance() inline;
+
+;; __tact_not_null
+forall X -> X __tact_not_null(X x) inline;
+
+;; __tact_context_get
+(int, slice, int, slice) __tact_context_get() inline;
+
+;; __tact_context_get_sender
+slice __tact_context_get_sender() inline;
+
+;; __tact_store_bool
+builder __tact_store_bool(builder b, int v) inline;
+
+;; __tact_slice_eq_bits
+int __tact_slice_eq_bits(slice a, slice b) inline;
+
+;; $Deploy$_load
+(slice, ((int))) $Deploy$_load(slice sc_0) inline;
+
+;; $DeployOk$_store
+builder $DeployOk$_store(builder build_0, (int) v) inline;
+
+;; $DeployOk$_store_cell
+cell $DeployOk$_store_cell((int) v) inline;
+
+;; $UpdateUserPublicKey$_load
+(slice, ((slice, slice))) $UpdateUserPublicKey$_load(slice sc_0) inline;
+
+;; $UserData$_store
+builder $UserData$_store(builder build_0, (slice, slice, slice) v) inline;
+
+;; $UserData$_load
+(slice, ((slice, slice, slice))) $UserData$_load(slice sc_0) inline;
+
+;; $StateInit$_not_null
+((cell, cell)) $StateInit$_not_null(tuple v) inline;
+
+;; $UserData$init$_load
+(slice, ((slice, slice))) $UserData$init$_load(slice sc_0) inline;
+
+;; $UserData$_contract_init
+(slice, slice, slice) $UserData$_contract_init(slice $owner, slice $parent) impure inline_ref;
+
+;; $UserData$_contract_load
+(slice, slice, slice) $UserData$_contract_load() impure inline_ref;
+
+;; $UserData$_contract_store
+() $UserData$_contract_store((slice, slice, slice) v) impure inline;
+
+;; $global_send
+() $global_send((int, slice, int, int, cell, cell, cell) $params) impure inline_ref;
+
+;; $UserData$_fun_myBalance
+((slice, slice, slice), int) $UserData$_fun_myBalance((slice, slice, slice) $self) impure inline_ref;
+
+;; $UserData$_fun_myAddress
+((slice, slice, slice), slice) $UserData$_fun_myAddress((slice, slice, slice) $self) impure inline_ref;
+
+;; $UserData$_fun_myOwner
+((slice, slice, slice), slice) $UserData$_fun_myOwner((slice, slice, slice) $self) impure inline_ref;
+
+;; $UserData$_fun_myPublicKey
+((slice, slice, slice), slice) $UserData$_fun_myPublicKey((slice, slice, slice) $self) impure inline_ref;
+
+;; $SendParameters$_constructor_bounce_to_value_mode_body_code_data
+((int, slice, int, int, cell, cell, cell)) $SendParameters$_constructor_bounce_to_value_mode_body_code_data(int bounce, slice to, int value, int mode, cell body, cell code, cell data) inline;
+
+;; $UserData$_fun_forward
+((slice, slice, slice), ()) $UserData$_fun_forward((slice, slice, slice) $self, slice $to, cell $body, int $bounce, tuple $init) impure inline_ref;
+
+;; $UserData$_fun_notify
+((slice, slice, slice), ()) $UserData$_fun_notify((slice, slice, slice) $self, cell $body) impure inline;
+
+;; $UserData$_fun_owner
+((slice, slice, slice), slice) $UserData$_fun_owner((slice, slice, slice) $self) impure inline_ref;
+
+;; $DeployOk$_constructor_queryId
+((int)) $DeployOk$_constructor_queryId(int queryId) inline;
