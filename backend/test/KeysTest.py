@@ -15,5 +15,5 @@ keys_generator = Keys.KeysGenerator(
 )
 
 keys = keys_generator.GenerateKeys()
-print(keys.publickey)
-print(keys.privatekey)
+print(f'Public Key: {keys.publickey}')
+print(f'Private Key: {keys.privatekey}')
