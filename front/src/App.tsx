@@ -1,24 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Home from "./pages/Home";
+import { RouterProvider } from "react-router-dom";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
-import UserPage from "./pages/UserPage/UserPage";
-import UndefinedPage from "./pages/UndefinedPage";
+import { router } from "./router/router";
 
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />,
-    },
-    {
-        path: "/user/:id",
-        element: <UserPage />,
-    },
-    {
-        path: "*",
-        element: <UndefinedPage />,
-    },
-]);
 
 function App() {
     return (

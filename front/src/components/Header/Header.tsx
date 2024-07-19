@@ -1,38 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../Logo/Logo";
 import Search from "../Search/Search";
 import styles from "./styles.module.scss";
 import Modal from "../Modal/Modal";
-import { useTonConnectUI } from "@tonconnect/ui-react";
+import { TonConnectButton} from "@tonconnect/ui-react";
+import { ModalTonConnect } from "../Modal/ModalTonConnect/ModalTonConnect";
+import { useTonConnect } from "../../hooks/useTonConnect";
 
 export default function Header() {
-    const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-    const [tonConnectUi] = useTonConnectUI();
+  const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
+  const [isModalTonConnect, setIsModalTonConnect] = useState<boolean>(true);
 
-    function openSearch() {
-        if (window.screen.width > 768) {
-            setIsSearchOpen(false);
-        } else {
-            setIsSearchOpen(true);
-        }
+  const { wallet } = useTonConnect();
+
+  useEffect(() => {
+    if (wallet && !localStorage.getItem("modalShown")) {
+      setIsModalTonConnect(true);
+      localStorage.setItem("modalShown", "true");
     }
+  }, [wallet]);
 
-    return (
-        <header className={styles.header}>
-            <div className={`${styles.container} container`}>
-                <Logo />
-                <Search shownMobile={false} />
-                <div className={styles.buttons}>
-                    <button className={styles.button} onClick={tonConnectUi.openModal}>
-                        <i className="fa-solid fa-wallet"></i>Connect
-                    </button>
-                    <button onClick={openSearch} className={`${styles.searchButton} shown-mobile`}>
-                        <i className="fa-solid fa-magnifying-glass"></i>
-                    </button>
-                </div>
+  function openSearch() {
+    if (window.screen.width > 768) {
+      setIsSearchOpen(false);
+    } else {
+      setIsSearchOpen(true);
+    }
+  }
 
-                <Modal isOpen={isSearchOpen} close={()=>setIsSearchOpen(false)}><Search shownMobile={true} /></Modal>
-            </div>
-        </header>
-    );
+  return (
+    <header className={styles.header}>
+      <div className={`${styles.container} container`}>
+        <Logo />
+        <Search shownMobile={false} />
+        <div className={styles.buttons}>
+            <TonConnectButton/>
+          {/* <button
+            className={styles.button}
+            onClick={() => tonConnectUi.openModal()}
+          >
+            <i className="fa-solid fa-wallet"></i>Connect
+          </button> */}
+          <button
+            onClick={openSearch}
+            className={`${styles.searchButton} shown-mobile`}
+          >
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+
+        <Modal isOpen={isSearchOpen} close={() => setIsSearchOpen(false)}>
+          <Search shownMobile={true} />
+        </Modal>
+
+        <ModalTonConnect isOpen={isModalTonConnect}>
+          <div className={styles.modalTonConnect}>
+            <span onClick={() => setIsModalTonConnect(false)}>X</span>
+            <h1>Create your account ✅</h1>
+            <p>
+              To fully use our marketplace, you need to create a smart contract
+              for your account.
+            </p>
+            <button onClick={() => setIsModalTonConnect(false)}>Create</button>
+            <a href="/">Learn more</a>
+          </div>
+        </ModalTonConnect>
+      </div>
+    </header>
+  );
 }
