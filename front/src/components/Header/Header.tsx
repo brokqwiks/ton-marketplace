@@ -9,7 +9,7 @@ import { useTonConnect } from "../../hooks/useTonConnect";
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
-  const [isModalTonConnect, setIsModalTonConnect] = useState<boolean>(true);
+  const [isModalTonConnect, setIsModalTonConnect] = useState<boolean>(false);
 
   const { wallet } = useTonConnect();
 
