@@ -26,6 +26,13 @@
     return (($self'name, $self'users), $self'users);
 }
 
+((slice, int), slice) $UsersDelpoyer$_fun_userContractAddress((slice, int) $self, slice $userAddress) impure inline_ref {
+    var (($self'name, $self'users)) = $self;
+    var ($init'code, $init'data) = $UserData$_init_child(__tact_context_sys, $userAddress, my_address());
+    slice $userContractAddress = $global_contractAddress(($init'code, $init'data));
+    return (($self'name, $self'users), $userContractAddress);
+}
+
 ;;
 ;; Receivers of a Contract UsersDelpoyer
 ;;
@@ -64,6 +71,13 @@ _ %totalUsers() method_id(85436) {
     return res;
 }
 
+_ %userContractAddress(slice $$userAddress) method_id(126548) {
+    slice $userAddress = __tact_verify_address($$userAddress);
+    var self = $UsersDelpoyer$_contract_load();
+    var res = self~$UsersDelpoyer$_fun_userContractAddress($userAddress);
+    return res;
+}
+
 _ supported_interfaces() method_id {
     return (
         "org.ton.introspection.v0"H >> 128,
@@ -75,7 +89,7 @@ _ supported_interfaces() method_id {
 }
 
 _ get_abi_ipfs() method_id {
-    return "ipfs://QmfAY3hzQ4vLWEKWXcTDn3mqFteZsE7BsVfrSE8W482hAa";
+    return "ipfs://Qmf7opgJyjhPZUHeBZ8zE8nRbkYm1mbJbegnAHYdXwfyF1";
 }
 
 _ lazy_deployment_completed() method_id {

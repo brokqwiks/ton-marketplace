@@ -1,1 +1,1 @@
-export * from '../build/UserData/tact_UserData';
+export * from '../../build/UserData/tact_UserData';

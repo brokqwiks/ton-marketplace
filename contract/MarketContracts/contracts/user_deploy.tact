@@ -38,4 +38,11 @@ contract UsersDelpoyer with Deployable {
     get fun totalUsers(): Int {
         return self.users;
     }
+
+    get fun userContractAddress(userAddress: Address): Address {
+        let init: StateInit = initOf UserData(userAddress, myAddress());
+        let userContractAddress: Address = contractAddress(init);
+
+        return userContractAddress;
+    }
 }

@@ -32,6 +32,7 @@ PROGRAM{
   DECLPROC $SendParameters$_constructor_bounce_to_value_mode_body_code_data
   DECLPROC $UsersDelpoyer$_fun_myAddress
   DECLPROC $UsersDelpoyer$_fun_totalUsers
+  DECLPROC $UsersDelpoyer$_fun_userContractAddress
   DECLPROC $UsersDelpoyer$_fun_forward
   DECLPROC $UsersDelpoyer$_fun_reply
   DECLPROC $UsersDelpoyer$_fun_notify
@@ -43,6 +44,7 @@ PROGRAM{
   DECLPROC $UsersDelpoyer$_internal_binary_Deploy
   77701 DECLMETHOD %myAddress
   85436 DECLMETHOD %totalUsers
+  126548 DECLMETHOD %userContractAddress
   113617 DECLMETHOD supported_interfaces
   121275 DECLMETHOD get_abi_ipfs
   115390 DECLMETHOD lazy_deployment_completed
@@ -415,6 +417,13 @@ PROGRAM{
   $UsersDelpoyer$_fun_totalUsers PROCREF:<{
     DUP
   }>
+  $UsersDelpoyer$_fun_userContractAddress PROCREF:<{
+    __tact_context_sys GETGLOB
+    MYADDR
+    s1 s2 XCHG
+    $UserData$_init_child INLINECALLDICT
+    $global_contractAddress INLINECALLDICT
+  }>
   $UsersDelpoyer$_fun_forward PROCREF:<{
     PUSHNULL
     PUSHNULL
@@ -502,6 +511,13 @@ PROGRAM{
     $UsersDelpoyer$_fun_totalUsers INLINECALLDICT
     2 1 BLKDROP2
   }>
+  %userContractAddress PROC:<{
+    __tact_verify_address INLINECALLDICT
+    $UsersDelpoyer$_contract_load INLINECALLDICT
+    ROT
+    $UsersDelpoyer$_fun_userContractAddress INLINECALLDICT
+    2 1 BLKDROP2
+  }>
   supported_interfaces PROC:<{
     123515602279859691144772641439386770278 PUSHINT
     209801025412363888721030803524359905849 PUSHINT
@@ -510,7 +526,7 @@ PROGRAM{
     209474421377847335869795010607481022628 PUSHINT
   }>
   get_abi_ipfs PROC:<{
-    x{697066733a2f2f516d66415933687a5134764c57454b57586354446e336d714674655a734537427356667253453857343832684161} PUSHSLICE
+    x{697066733a2f2f516d66376f70674a796a68505a554865425a387a45386e52626b596d316d624a6265676e41485964587766794631} PUSHSLICE
   }>
   lazy_deployment_completed PROC:<{
     c4 PUSH

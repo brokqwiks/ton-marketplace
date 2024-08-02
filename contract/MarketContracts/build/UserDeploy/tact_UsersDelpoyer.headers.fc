@@ -102,6 +102,9 @@ slice $global_contractAddress((cell, cell) $s) impure inline;
 ;; $UsersDelpoyer$_fun_totalUsers
 ((slice, int), int) $UsersDelpoyer$_fun_totalUsers((slice, int) $self) impure inline_ref;
 
+;; $UsersDelpoyer$_fun_userContractAddress
+((slice, int), slice) $UsersDelpoyer$_fun_userContractAddress((slice, int) $self, slice $userAddress) impure inline_ref;
+
 ;; $UsersDelpoyer$_fun_forward
 ((slice, int), ()) $UsersDelpoyer$_fun_forward((slice, int) $self, slice $to, cell $body, int $bounce, tuple $init) impure inline_ref;
 

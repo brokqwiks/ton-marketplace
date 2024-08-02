@@ -1,6 +1,6 @@
 # TACT Compilation Report
 Contract: UsersDelpoyer
-BOC Size: 1020 bytes
+BOC Size: 1142 bytes
 
 # Types
 Total Types: 12
@@ -54,11 +54,14 @@ TLB: `user_contract_deploy_responce#2dabfdfb address:address owner:address publi
 Signature: `UserContractDeploy_Responce{address:address,owner:address,publicKey:^string}`
 
 # Get Methods
-Total Get Methods: 2
+Total Get Methods: 3
 
 ## myAddress
 
 ## totalUsers
+
+## userContractAddress
+Argument: userAddress
 
 # Error Codes
 2: Stack underflow

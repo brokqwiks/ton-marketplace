@@ -61,4 +61,12 @@ describe('UserDeploy', () => {
 
         console.log(await userData.getMyPublicKey());
     });
+
+    it('user address', async () => {
+        user = await blockchain.treasury('user');
+        userData = await blockchain.openContract(await UserData.fromInit(user.address, userDeploy.address));
+        console.log(userData.address)
+
+        console.log(await userDeploy.getUserContractAddress(user.address));
+    })
 });

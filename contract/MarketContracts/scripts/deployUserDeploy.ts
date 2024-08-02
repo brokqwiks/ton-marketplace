@@ -1,11 +1,11 @@
 import { toNano } from '@ton/core';
-import { UserDeploy } from '../wrappers/UserDeploy';
 import { NetworkProvider } from '@ton/blueprint';
+import { UsersDelpoyer } from '../wrappers/UserDeploy';
 
 export async function run(provider: NetworkProvider) {
-    const userDeploy = provider.open(await UserDeploy.fromInit());
+    const usersDeployer = provider.open(await UsersDelpoyer.fromInit("UDO Market-Place Users Deployer"));
 
-    await userDeploy.send(
+    await usersDeployer.send(
         provider.sender(),
         {
             value: toNano('0.05'),
@@ -16,7 +16,7 @@ export async function run(provider: NetworkProvider) {
         }
     );
 
-    await provider.waitForDeploy(userDeploy.address);
+    await provider.waitForDeploy(usersDeployer.address);
 
     // run methods on `userDeploy`
 }

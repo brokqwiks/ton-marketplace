@@ -6,12 +6,16 @@ import Modal from "../Modal/Modal";
 import { TonConnectButton} from "@tonconnect/ui-react";
 import { ModalTonConnect } from "../Modal/ModalTonConnect/ModalTonConnect";
 import { useTonConnect } from "../../hooks/useTonConnect";
+import { useDeployerContract } from "../../hooks/useDeployerContract";
+import { Address } from "ton-core";
+import { UserData } from "../../wrappers/UserData";
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isModalTonConnect, setIsModalTonConnect] = useState<boolean>(false);
 
-  const { wallet } = useTonConnect();
+  const { wallet, sender } = useTonConnect();
+  const { deployerContract, userContract, deployUser } = useDeployerContract()
 
   useEffect(() => {
     if (wallet && !localStorage.getItem("modalShown")) {
@@ -27,7 +31,6 @@ export default function Header() {
       setIsSearchOpen(true);
     }
   }
-
   return (
     <header className={styles.header}>
       <div className={`${styles.container} container`}>
@@ -48,7 +51,7 @@ export default function Header() {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-
+          
         <Modal isOpen={isSearchOpen} close={() => setIsSearchOpen(false)}>
           <Search shownMobile={true} />
         </Modal>
@@ -61,7 +64,7 @@ export default function Header() {
               To fully use our marketplace, you need to create a smart contract
               for your account.
             </p>
-            <button onClick={() => setIsModalTonConnect(false)}>Create</button>
+            <button onClick={() => deployUser()}>Create</button>
             <a href="/">Learn more</a>
           </div>
         </ModalTonConnect>
