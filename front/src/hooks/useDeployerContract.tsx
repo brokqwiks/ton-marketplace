@@ -28,6 +28,7 @@ export function useDeployerContract() {
         return client.open(contract) as OpenedContract<UserData>
     }, [deployerContract, client])
 
+
     return{
         deployerContract,
         userContract,

@@ -9,20 +9,28 @@ import { useTonConnect } from "../../hooks/useTonConnect";
 import { useDeployerContract } from "../../hooks/useDeployerContract";
 import { Address } from "ton-core";
 import { UserData } from "../../wrappers/UserData";
+import { address } from "@ton/core";
+import { useIsContractDeployed } from "../../hooks/checkUserContract";
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState<boolean>(false);
   const [isModalTonConnect, setIsModalTonConnect] = useState<boolean>(false);
 
-  const { wallet, sender } = useTonConnect();
-  const { deployerContract, userContract, deployUser } = useDeployerContract()
+  const { wallet, sender, network } = useTonConnect();
+  const { deployerContract, deployUser, userContract} = useDeployerContract()
+  const {isDeployed, loading, error} = useIsContractDeployed(userContract?.address!)
 
   useEffect(() => {
-    if (wallet && !localStorage.getItem("modalShown")) {
-      setIsModalTonConnect(true);
-      localStorage.setItem("modalShown", "true");
+    if (wallet && isDeployed !== null) {
+        if (!isDeployed) {
+            setIsModalTonConnect(true);
+        } else {
+            setIsModalTonConnect(false);
+        }
+    } else {
+        setIsModalTonConnect(false);
     }
-  }, [wallet]);
+}, [wallet, isDeployed]);
 
   function openSearch() {
     if (window.screen.width > 768) {
@@ -51,7 +59,7 @@ export default function Header() {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-          
+        
         <Modal isOpen={isSearchOpen} close={() => setIsSearchOpen(false)}>
           <Search shownMobile={true} />
         </Modal>
